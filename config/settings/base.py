@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'commons',
     'api',
     'apps.actions',
+    'apps.admins',
     'apps.devices',
     'apps.rooms',
     'apps.users',
@@ -143,7 +144,6 @@ REST_FRAMEWORK = {
     )
 }
 
-
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=1000),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=10),
@@ -175,4 +175,3 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_LIFETIME': timedelta(minutes=5),
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
 }
-
