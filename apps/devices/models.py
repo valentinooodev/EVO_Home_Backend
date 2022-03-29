@@ -12,6 +12,7 @@ class DeviceCategoryModel(BaseModel):
     class Meta:
         db_table = 'device_categories'
         verbose_name_plural = 'Device Categories'
+        ordering = ('-created_at',)
 
 
 class DeviceModel(BaseModel):
@@ -27,6 +28,7 @@ class DeviceModel(BaseModel):
     class Meta:
         db_table = 'devices'
         verbose_name_plural = 'Devices'
+        ordering = ('-created_at',)
 
 
 class DeviceHistoryModel(BaseModel):
@@ -39,3 +41,4 @@ class DeviceHistoryModel(BaseModel):
     class Meta:
         db_table = 'device_histories'
         verbose_name_plural = 'Device Histories'
+        ordering = ('-created_at',)

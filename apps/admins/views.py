@@ -43,6 +43,11 @@ class AdminRoomAPIView(APIView):
 class AdminDeviceAPIView(APIView):
     permission_classes = [permissions.IsAdminUser]
 
+    def get(self, request):
+        devices = RoomModel.objects.all()
+        serializer = DeviceSerializer(devices, many=True)
+        return Response(default_response(serializer.data))
+
     def post(self, request):
         serializer = DeviceSerializer(data=request.data)
         if serializer.is_valid():
