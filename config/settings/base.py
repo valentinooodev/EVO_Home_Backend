@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'commons',
     'api',
+    'apps.actions',
     'apps.devices',
     'apps.rooms',
     'apps.users',
