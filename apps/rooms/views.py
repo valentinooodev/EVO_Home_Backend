@@ -5,6 +5,7 @@ from rest_framework import permissions
 from rest_framework.response import Response
 from .models import RoomModel
 from .serializers import RoomSerializer
+from commons.response import default_response
 
 
 class RoomListAPIView(APIView):
@@ -14,4 +15,4 @@ class RoomListAPIView(APIView):
     def get(self, request):
         rooms = request.user.room_permission.all()
         serializer = RoomSerializer(rooms, many=True)
-        return Response(serializer.data)
+        return Response(default_response(serializer.data))

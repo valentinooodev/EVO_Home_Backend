@@ -11,6 +11,7 @@ from .serializers import (
     DeviceSerializer
 )
 from config.settings.base import AUTH_USER_MODEL
+from commons.response import default_response
 
 
 class RoomDeviceListAPIView(APIView):
@@ -19,4 +20,4 @@ class RoomDeviceListAPIView(APIView):
     def get(self, request, pk):
         devices = DeviceModel.objects.filter(room=pk)
         serializer = DeviceSerializer(devices, many=True)
-        return Response(serializer.data)
+        return Response(default_response(serializer.data, "ok"))
