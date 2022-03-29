@@ -20,6 +20,7 @@ class DeviceModel(BaseModel):
     status = models.BooleanField(default=False)
     data = models.TextField(null=True, blank=True)
     category = models.ForeignKey(DeviceCategoryModel, on_delete=models.CASCADE, related_name='device_category')
+    is_sensor = models.BooleanField(default=False)
     room = models.ForeignKey(RoomModel, on_delete=models.CASCADE, related_name='device_room')
 
     def __str__(self):

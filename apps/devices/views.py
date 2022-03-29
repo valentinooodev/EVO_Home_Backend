@@ -18,6 +18,6 @@ class RoomDeviceListAPIView(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request, pk):
-        devices = DeviceModel.objects.filter(room=pk)
+        devices = DeviceModel.objects.filter(room=pk, is_sensor=False)
         serializer = DeviceSerializer(devices, many=True)
         return Response(default_response(serializer.data, "ok"))
