@@ -17,6 +17,7 @@ class DeviceCategoryModel(BaseModel):
 
 class DeviceModel(BaseModel):
     name = models.CharField(max_length=255)
+    slug = models.SlugField(max_length=255)
     status = models.BooleanField(default=False)
     data = models.TextField(null=True, blank=True)
     category = models.ForeignKey(DeviceCategoryModel, on_delete=models.CASCADE, related_name='device_category')
