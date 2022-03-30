@@ -6,7 +6,7 @@ class DeviceSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = DeviceModel
-        fields = ('id', 'name', 'status', 'data', 'category', 'room')
+        fields = ('id', 'name', 'slug', 'status', 'data', 'category', 'room')
 
 
 class DeviceHistorySerializer(serializers.ModelSerializer):

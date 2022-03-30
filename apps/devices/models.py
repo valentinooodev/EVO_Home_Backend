@@ -17,7 +17,7 @@ class DeviceCategoryModel(BaseModel):
 
 class DeviceModel(BaseModel):
     name = models.CharField(max_length=255)
-    slug = models.SlugField(max_length=255)
+    slug = models.SlugField(max_length=255, unique=True)
     status = models.BooleanField(default=False)
     data = models.TextField(null=True, blank=True)
     category = models.ForeignKey(DeviceCategoryModel, on_delete=models.CASCADE, related_name='device_category')
@@ -38,7 +38,7 @@ class DeviceHistoryModel(BaseModel):
     data = models.TextField()
 
     def __str__(self):
-        return f'{self.device} - {self.updated_at}'
+        return f'{self.device} - {self.updated_at} - {self.data}'
 
     class Meta:
         db_table = 'device_histories'
