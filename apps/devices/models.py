@@ -4,7 +4,8 @@ from apps.rooms.models import RoomModel
 
 
 class DeviceCategoryModel(BaseModel):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255),
+    icon_name = models.CharField(max_length=50, default='default-icon')
 
     def __str__(self):
         return self.name
